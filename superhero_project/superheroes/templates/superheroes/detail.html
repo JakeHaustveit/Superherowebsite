@@ -20,6 +20,8 @@
             <li> <h2>Catch Phrase</h3></li>
             <ul> <h3>{{single_hero.catch_phrase}}</h3> </ul>
             <a href="{% url 'superheroes:index'%}">Return to Index</a>
+            <a href="{% url 'superheroes:delete' single_hero.id %}"> Delete Hero</a>
+            
             
             
         </ul>

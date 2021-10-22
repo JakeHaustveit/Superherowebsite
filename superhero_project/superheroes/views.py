@@ -38,8 +38,23 @@ def create(request):
 
 
 
-# def updae(request):
-#     pass
+def update(request, hero_id):
+    if request.method == "POST":
+        name= request.POST.update('name')
+        alter_ego = request.POST.update('alter_ego')
+        primary= request.POST.update('primary')
+        secondary= request.POST.update('secondary')
+        catchpharse= request.POST.update('catchphrase')
+        new_hero= Superhero(name=name, alter_ego=alter_ego, primary_ability=primary, secondary_ability=secondary, catch_phrase=catchpharse)
+        new_hero.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    
+    else:
+        return render(request, 'superheroes/update.html')
+        
+        
 
-# def delete(request):
-#     pass            
+def delete(request, hero_id):
+    single_hero = Superhero.objects.filter(id=hero_id)
+    single_hero.delete()
+    return HttpResponseRedirect(reverse('superheroes:index'))        
