@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Update Heroe Here</h1>
-    <form action= "{% url 'superheroes:update' hero.id %}" method="post">
+        <form action= "{% url 'superheroes:update' hero.id %}" method="post">
         {%csrf_token %}
+
         Name: <input type="text" name="name" id="name"> <br />
         Alter Ego: <input type="text" name="alter_ego" id="alter_ego"> <br />
         Primary Ability: <input type="text" name="primary" id="primary"> <br />
@@ -18,6 +19,7 @@
         <input type="submit" value="Add!">
 
     </form>
+
     
 </body>
 </html>
